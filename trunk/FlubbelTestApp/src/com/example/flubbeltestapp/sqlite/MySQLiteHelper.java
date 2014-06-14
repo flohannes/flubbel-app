@@ -143,6 +143,28 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 		return categoryListe;
 	}
 	
+	public List<Category> getCategoryIdByName(String name){
+		List<Category> categoryListe = new LinkedList<Category>();
+		
+		String query = "SELECT * FROM " + this.TABLE_CATEGORY + " WHERE categoryname='" + name+"'";
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor cursor = db.rawQuery(query, null);
+		
+		Category c = null;
+		if(cursor.moveToFirst()){
+			do {
+				c = new Category();
+				c.setId(Integer.parseInt(cursor.getString(0)));
+				c.setCategoryname(cursor.getString(1));
+				
+				categoryListe.add(c);
+			} while (cursor.moveToNext());
+		}
+		
+		Log.d("getAllCategories()", categoryListe.toString());
+		return categoryListe;
+	}
+	
 	public void deleteAccounting(Accounting a){
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(this.TABLE_ACCOUNTING, this.ACCOUNTING_ID+" = ?", new String[]{String.valueOf(a.getId())});
