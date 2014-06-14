@@ -1,27 +1,26 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.flubbeltestapp.MainActivity"
-    tools:ignore="MergeRootFrame" >
-
+    android:orientation="vertical" >
 
     <Button
         android:id="@+id/AddAusgabeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="145dp"
         android:text="Ausgabe hinzufügen" />
-    
-    
+
     <TextView
         android:id="@+id/showAusgabenTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_above="@+id/AddAusgabeButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-</FrameLayout>
 
+	</RelativeLayout>
