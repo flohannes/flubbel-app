@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
     	                    
     	  //Erstelle DatenBank
 	        MySQLiteHelper db = MySQLiteHelper.getInstance(this);
-	        String[] categoryList = {"Lebensmittel","Haushalt","Kostmetik","Geschenke","Kleidung","Schuhe","Technik","Bücher","Büromaterial","Freizeit","Imbiss","Accessoires", "Apotheke","Baumarkt/IKEA","Drogerie","Bahn","Auto"};
+	        String[] categoryList = {"Lebensmittel","Haushalt","Kosmetik","Geschenke","Kleidung","Schuhe","Technik","Bücher","Büromaterial","Freizeit","Imbiss","Accessoires", "Apotheke","Baumarkt/IKEA","Drogerie","Bahn","Auto"};
 	        for(String c : categoryList){
 	        	Category cNew = new Category(c);
 	        	db.addCategory(cNew);

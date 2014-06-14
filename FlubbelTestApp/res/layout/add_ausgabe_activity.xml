@@ -4,26 +4,45 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <ExpandableListView
+        android:id="@+id/expandableListView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveButton"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText1"
+        android:listSelector="@drawable/abc_list_pressed_holo_dark" >
+
+    </ExpandableListView>
+
     <Button
-        android:id="@+id/backToMainButton"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp"
-        android:text="Back" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Speichern" />
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/backToMainButton"
-        android:layout_marginTop="14dp"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="Betrag" >
+        android:hint="Betrag"
+        android:inputType="numberDecimal" />
 
-        <requestFocus />
-    </EditText>
-
+    <Button
+        android:id="@+id/backToMainButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="Zurück" />
+    
 </RelativeLayout>
