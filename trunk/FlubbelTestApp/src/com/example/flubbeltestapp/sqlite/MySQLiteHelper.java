@@ -2,6 +2,7 @@ package com.example.flubbeltestapp.sqlite;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -74,7 +75,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 		ContentValues values = new ContentValues();
 		values.put(this.ACCOUNTING_VALUE, a.getValue());
 		values.put(this.ACCOUNTING_CATEGORY_ID, a.getCategory_id());
-		values.put(this.ACCOUNTING_DATE_CREATED, a.getDate().toString());
+		values.put(this.ACCOUNTING_DATE_CREATED, a.getDate().getTime());
 		
 		db.insert(this.TABLE_ACCOUNTING, null, values);
 		db.close();
@@ -106,12 +107,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 				a.setId(Integer.parseInt(cursor.getString(0)));
 				a.setValue(Double.parseDouble(cursor.getString(1)));
 				a.setCategory_id(Integer.parseInt(cursor.getString(2)));
-				try {
-					a.setDate(new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(cursor.getString(3)));
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				a.setDate(new Date(Long.parseLong(cursor.getString(3))));
+//				try {
+//					a.setDate(new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH).parse(cursor.getString(3)));
+//				} catch (ParseException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				
 				accountingListe.add(a);
 			} while (cursor.moveToNext());
