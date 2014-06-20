@@ -10,6 +10,7 @@ import com.example.flubbeltestapp.sqlite.MySQLiteHelper;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 public class SaveOnClickListener implements View.OnClickListener {
 
@@ -32,6 +33,9 @@ public class SaveOnClickListener implements View.OnClickListener {
 			Category currentCategory = currentCategoryList.get(0);
 			Accounting a = new Accounting(value, currentCategory.getId(), new Date());
 			db.addAccounting(a);
+			Toast.makeText(v.getContext(),
+					"saved",
+					Toast.LENGTH_SHORT).show();
 		}
 		
 	}
