@@ -37,6 +37,7 @@ public class SaveOnClickListener implements View.OnClickListener {
 					"saved",
 					Toast.LENGTH_SHORT).show();
 		}
+		textField.setText("");
 		
 	}
 	
