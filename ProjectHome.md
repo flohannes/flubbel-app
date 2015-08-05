@@ -1,0 +1,1 @@
+Abspeichern von Bargeld Ausgaben
